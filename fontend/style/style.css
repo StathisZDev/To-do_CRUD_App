@@ -1,0 +1,75 @@
+*
+{
+    font-family: "Comfortaa", Arial, Helvetica, sans-serif;
+}
+
+
+.nav-bar
+{
+    background: #21215c;
+    background: linear-gradient(0deg,rgba(33, 33, 92, 1) 0%, rgba(24, 119, 242, 1) 100%);
+}
+
+.header-font
+{
+    color: rgb(205, 213, 220);
+}
+
+.my-btn
+{
+    background: #21215c;
+    background: linear-gradient(0deg,rgba(33, 33, 92, 1) 0%, rgba(24, 119, 242, 1) 100%);
+}
+
+.my-btn:hover
+{
+    background: #171745;
+    background: linear-gradient(0deg,rgb(31, 31, 87) 0%, rgb(25, 85, 164) 100%);
+}
+
+.to-do-item
+{
+    background: #171745;
+    color: aliceblue;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+    transition: all 0.4s ease;
+}
+
+.to-do-item:hover
+{
+    /* transform: scale(1.002); */
+     background: #25255c;
+}
+
+.main-background
+{
+    background: #10264b;
+}
+
+.add-btn
+{
+   background-color: rgba(0, 0, 0, 0); border-color: rgba(0, 0, 0, 0);
+   border-radius: 100px;
+}
+
+.add-btn:hover
+{
+    background-color: #ffffff18;
+}
+
+.add-image
+{
+     filter: brightness(0) invert(1);
+}
+
+.reactive-image
+{
+    transition: all 0.2s ease;
+}
+
+.reactive-image:hover
+{
+    transform: scale(1.5);
+}
