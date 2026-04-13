@@ -4,10 +4,23 @@
 }
 
 
+
 .nav-bar
 {
     background: #21215c;
     background: linear-gradient(0deg,rgba(33, 33, 92, 1) 0%, rgba(24, 119, 242, 1) 100%);
+     background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+ 
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 2px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 .header-font
@@ -29,23 +42,39 @@
 
 .to-do-item
 {
-    background: #171745;
+    background: #bff91f;
     color: aliceblue;
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 
     transition: all 0.4s ease;
+        background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 2px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 .to-do-item:hover
 {
     /* transform: scale(1.002); */
-     background: #25255c;
+     background: #b5b5d758;
 }
 
 .main-background
 {
-    background: #10264b;
+   background: linear-gradient(135deg, #667eea, #653792);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   min-height: 100vh;
 }
 
 .add-btn
@@ -72,4 +101,36 @@
 .reactive-image:hover
 {
     transform: scale(1.5);
+}
+
+body
+{
+   background: linear-gradient(135deg, #667eea, #653792);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   min-height: 100vh;
+}
+
+.modal-section
+{
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.5);
+
+   
+
+    background-color: #412e5483   ;
+}
+
+.tester
+{
+    
+    background-image: url('../images/bg-01.jpg');
+    border-radius: 5px;
+    
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }

@@ -31,7 +31,7 @@
         exit;
     }
 
-    $stmt = $pdo->prepare('SELECT * FROM posts WHERE user_id = :user_id');
+    $stmt = $pdo->prepare('SELECT * FROM posts WHERE user_id = :user_id ORDER BY created_at DESC');
     
     $stmt->execute([
         ':user_id' => $_SESSION['user_id']
@@ -48,31 +48,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../fontend//style/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="..\fontend\style\style.css">
-
+    
+   
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
-<body class="main-background">
+<body>
 
     
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
+    <!-- Add Modal -->
+    <div class="modal fade modal-section" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog tester">
+        <div class="modal-content ">
 
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">New Task</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
 
-          <div class="modal-body">
+          <div class="modal-body tester">
+            <div class="d-flex text-center text-white justify-content-between">
+                <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: #171745;">New Task</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
             <form action="index.php" method="post">
                 <?php echo $msg . "<br>"?>
                 <input type="text" name="content">
+                <br>
                  <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <!-- <input type="submit" value="Add"> -->
@@ -84,6 +86,33 @@
       </div>
     </div>
 
+    <!-- Edit Modal -->
+    <div class="modal fade modal-section" id="modal_edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog tester">
+        <div class="modal-content ">
+          <div class="modal-body tester">
+            <div class="d-flex text-center text-white justify-content-between">
+                <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: #171745;">Edit Task</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="editpost.php" method="post">
+                <?php echo $msg . "<br>"?>
+
+                <input type="text" name="content">
+
+                <input type="hidden" id="edit-id" name="post_id">
+
+                <br>
+                 <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <!-- <input type="submit" value="Add"> -->
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
      <!-- nav bar -->
     <div class="container-fluid nav-bar mb-3">
@@ -111,9 +140,9 @@
             <div class="col">
                 <div class="to-do-item d-flex justify-content-between align-items-center p-1 px-2 gap-2 my-3">
                     <div class="d-flex align-items-center text-start gap-4">
-                        <button style="border-radius: 4px;">
-                                <img src="..\fontend\images\edit.png" alt="" style="width: 20px;">
-                        </button>
+                                <button style="background-color: #17174500; border: none;" class="edit-btn" type="button" data-bs-toggle="modal" data-bs-target="#modal_edit" data-id="<?php echo $post['id'] ?>">
+                                    <img src="..\fontend\images\edit.png" alt="" style="width: 20px;">
+                                </button>        
                         <div> <?php echo $post['contents']; ?></div>
                     </div>
                     <div class="d-flex flex-direction-col gap-3">
@@ -137,7 +166,7 @@
            
         </div>
        
-       
+<script src="../fontend//javascript//script.js"></script>
 <script src="../fontend/javascript/modal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
